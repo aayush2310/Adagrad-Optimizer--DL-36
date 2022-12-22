@@ -1,0 +1,18 @@
+Adaptive Gradient
+we keep changing our learning rate i.e. we adapt it according to the situation.
+
+When does adagrad perform better as compared to other algos?
+=>1)The scale of the input features is different.
+  2)Features are sparse-most of the values are 0-problem=>elongated bowl problem-the graph of loss Vs w,b becomes an elongated circle(oval type)-the graph of
+    loss Vs parameter is elongated.-slope on one axis changes and other axis remains constant-the earlier optimization algos do not work the best-adagrad solves this problem
+    The problem with batch gradient descent is that we first descend on the greatest slope side and then when we have descended,we descend on the less slope side,so rather
+    than direct descending to our minima,we take a long path.
+    With momentum,the scene is same,just we overshoot as well.
+    Assume the gradient as the velocity,we see that x is 0 many times so the update is small in w as compared to b,so there are 2 directons and the velocity is the resultant 
+    of the two.
+    Till now the optimizers we studied,their learning rate was same in every direction.
+    
+    Adagrad can be used for problems of regression but not for complex neural network.
+    Disadvantage:-
+    1)Adagrad can reach near the solution but cannot converge to the solution,however number of epochs we give.Becz. we are decreasing our learning rate-dividing our 
+      learning rate by the past gradients.as epochs increase v(t) increases and the learning rate decreases.therefore small update-no update-stops
